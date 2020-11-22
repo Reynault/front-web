@@ -10,6 +10,7 @@ import { RecipyComponent } from './shared/recipy/recipy.component';
 import { RecipiesComponent } from './recipies/recipies.component';
 import { NavbarComponent } from './shared/navbar/navbar.component';
 import {AppRoutingModule} from './app-routing.module';
+import {MatToolbarModule} from '@angular/material/toolbar';
 
 
 @NgModule({
@@ -25,7 +26,8 @@ import {AppRoutingModule} from './app-routing.module';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    MatToolbarModule
   ],
   providers: [],
   bootstrap: [AppComponent]

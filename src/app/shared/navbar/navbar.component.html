@@ -1,1 +1,22 @@
-<p>navbar works!</p>
+<mat-toolbar class="extend-toolbar">
+  <span>
+    <a [routerLink]="['/']"> Cookie Book </a>
+  </span>
+
+  <span class="flex"></span>
+
+  <span *ngIf="!connected">
+    <a [routerLink]="['/connecter']">Se connecter</a>
+  </span>
+
+  <span *ngIf="connected">
+    <a [routerLink]="['/recettes']">Mes recettes</a>
+  </span>
+
+  <span *ngIf="connected">
+    <a [routerLink]="['/connecter']">Se deconnecter</a>
+  </span>
+
+</mat-toolbar>
+
+<router-outlet></router-outlet>
