@@ -2,7 +2,7 @@ import {NgModule} from '@angular/core';
 import { HomeComponent } from './home/home.component';
 import {RouterModule, Routes} from '@angular/router';
 import {ConnectionComponent} from './connection/connection.component';
-import {RecipiesComponent} from './recipies/recipies.component';
+import {RecipiesComponent} from './recipes/recipies.component';
 
 const routes: Routes = [
   {path: '', redirectTo: 'home', pathMatch: 'full'},
