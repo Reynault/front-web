@@ -1,0 +1,15 @@
+<mat-card class="mat-whiteframe-2dp">
+    <mat-card-title>
+        <span>{{ recipe.title}}</span>
+    </mat-card-title>
+  <mat-card-content>
+    <div class="truncate">
+      <span>{{ recipe.description }} </span>
+    </div>
+    <div>
+      <a mat-button title="Consulter" [routerLink]="['/recipes', recipe.id]">
+        <span> Consulter </span>
+      </a>
+    </div>
+  </mat-card-content>
+</mat-card>

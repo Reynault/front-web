@@ -19,6 +19,8 @@ import { ReactiveFormsModule } from '@angular/forms';
 import {MatGridListModule} from '@angular/material/grid-list';
 import {NavbarComponent} from './shared/navbar/navbar.component';
 import {RecipesComponent} from './recipes/recipes.component';
+import { CardComponent } from './shared/card/card.component';
+import {RecipyComponent} from './shared/recipe/recipy.component';
 
 
 @NgModule({
@@ -27,7 +29,9 @@ import {RecipesComponent} from './recipes/recipes.component';
     HomeComponent,
     DialogComponent,
     NavbarComponent,
-    RecipesComponent
+    RecipesComponent,
+    RecipyComponent,
+    CardComponent
   ],
   imports: [
     BrowserModule,

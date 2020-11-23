@@ -8,7 +8,6 @@ import { Component, OnInit } from '@angular/core';
 export class NavbarComponent implements OnInit{
 
   // vaut vrai si un utilisateur est connecté
-  // tslint:disable-next-line:variable-name
   private _connected: boolean;
 
   constructor() {

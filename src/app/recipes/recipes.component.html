@@ -1,17 +1,10 @@
 <div class="main-div">
   <mat-card [class.mat-elevation-z12]="true" class="card">
     <mat-card-header>
-      <mat-card-title><h1>Cookie Book !</h1></mat-card-title>
-      <mat-card-subtitle><h3>Super application qui permet de recenser vos magnifiques recettes !</h3></mat-card-subtitle>
+      <mat-card-title><h1>Liste des recettes</h1></mat-card-title>
     </mat-card-header>
     <mat-card-content style="text-align: center">
-      <h4>
-        Si toi aussi, t'as envi de partager tes recettes, inscris toi !
-      </h4>
+      <app-card [recipe]="recipe"  *ngFor="let recipe of recipes"></app-card>
     </mat-card-content>
-    <mat-card-actions style="text-align: center; margin-bottom: 15px;">
-      <button [routerLink]="['/recettes']" class="mat-button">Voir les recettes</button>
-      <button [routerLink]="['/inscription']" class="mat-button"> S'inscrire </button>
-    </mat-card-actions>
   </mat-card>
 </div>
