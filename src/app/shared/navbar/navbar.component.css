@@ -1,5 +1,5 @@
 mat-toolbar.extend-toolbar {
-  background-color: #0168AB;
+  background-color: black;
   background-image: url('/assets/images/bg_right.png');
   background-repeat: no-repeat;
   background-position: right;
@@ -8,7 +8,6 @@ mat-toolbar.extend-toolbar {
   width: 100%;
   z-index: 1;
   color: white;
-  margin-bottom: 10px;
 }
 
 mat-toolbar .flex {

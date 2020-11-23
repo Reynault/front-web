@@ -16,7 +16,9 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { ReactiveFormsModule } from '@angular/forms';
+import {MatGridListModule} from '@angular/material/grid-list';
 import {NavbarComponent} from './shared/navbar/navbar.component';
+import {RecipesComponent} from './recipes/recipes.component';
 
 
 @NgModule({
@@ -25,6 +27,7 @@ import {NavbarComponent} from './shared/navbar/navbar.component';
     HomeComponent,
     DialogComponent,
     NavbarComponent,
+    RecipesComponent
   ],
   imports: [
     BrowserModule,
@@ -40,7 +43,8 @@ import {NavbarComponent} from './shared/navbar/navbar.component';
     MatDialogModule,
     MatInputModule,
     MatFormFieldModule,
-    AppRoutingModule
+    AppRoutingModule,
+    MatGridListModule,
   ],
   providers: [],
   bootstrap: [ AppComponent ]
