@@ -29,6 +29,7 @@ import {RecipeComponent} from './shared/recipe/recipe.component';
 import {MatMenuModule} from '@angular/material/menu';
 import { ListRecipComponent } from './list-recip/list-recip.component';
 import { MyRecipComponent } from './my-recip/my-recip.component';
+import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 import { CreateRecipComponent } from './create-recip/create-recip.component';
 
 
@@ -47,7 +48,7 @@ import { CreateRecipComponent } from './create-recip/create-recip.component';
     CardComponent,
     ListRecipComponent,
     MyRecipComponent,
-    CreateRecipComponent
+    CreateRecipComponent,
   ],
   imports: [
     BrowserModule,
@@ -67,6 +68,7 @@ import { CreateRecipComponent } from './create-recip/create-recip.component';
     MatGridListModule,
     MatMenuModule,
     FormsModule,
+    MatProgressSpinnerModule
   ],
   providers: [ {provide: HTTP_INTERCEPTORS, useClass: AuthorizationInterceptor, multi: true} ],
   bootstrap: [ AppComponent ]

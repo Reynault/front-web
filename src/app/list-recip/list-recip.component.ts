@@ -12,11 +12,13 @@ export class ListRecipComponent implements OnInit {
   private _value: string;
   private _recipes: Recipe[];
   private _filteredRecipes: Recipe[];
+  private _loading: boolean;
 
   constructor(private _recipesService: RecipeService) {
     this._recipes = [];
     this._filteredRecipes = [];
     this._value = "";
+    this._loading = true;
   }
 
   ngOnInit(): void {
@@ -24,6 +26,7 @@ export class ListRecipComponent implements OnInit {
     this._recipesService.fetch().subscribe((recipes: Recipe[]) => {
         this._recipes = recipes;
         this._filteredRecipes = recipes;
+        this._loading = false;
     });
 
   }
@@ -47,5 +50,9 @@ export class ListRecipComponent implements OnInit {
   set value(value: string) {
     this._value = value;
     this.search(value);
+  }
+
+  get loading(): boolean {
+    return this._loading;
   }
 }

@@ -6,12 +6,13 @@ import {Token} from '../interfaces/token';
 import {merge, Observable, of} from 'rxjs';
 import {TokenService} from './token-service';
 import {map} from 'rxjs/operators';
+import {Recipe} from '../interfaces/recipe';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
-  private _
+  private _myRecipes: Recipe[];
   private readonly _backendURL: any;
   private readonly _defaultUser: User;
 

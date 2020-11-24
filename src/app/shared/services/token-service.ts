@@ -10,7 +10,6 @@ export class TokenService{
   private _expiry: string = "expiry";
   private _username: string = "username";
 
-
   set(token: Token){
     const now = new Date();
     localStorage.setItem(
