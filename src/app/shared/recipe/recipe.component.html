@@ -21,7 +21,7 @@
           <textarea cdkTextareaAutosize
                     cdkAutosizeMinRows="1"
                     cdkAutosizeMaxRows="5"
-                    type="text" required formControlName="description" matInput ></textarea>
+                    type="text" required formControlName="description" matInput></textarea>
         </mat-form-field>
       </p>
       <p>
@@ -42,7 +42,8 @@
             <input type="text" formControlName="unit" required matInput>
           </mat-form-field>
         </ng-container>
-        <button *ngIf="createRecipe || isUserRecipe" mat-button style="background-color: #d62d20" (click)="removeIngredient(j)">
+        <button *ngIf="createRecipe || isUserRecipe" mat-button style="background-color: #d62d20"
+                (click)="removeIngredient(j)">
           Supprimer
         </button>
       </p>
@@ -60,7 +61,8 @@
           </textarea>
         </mat-form-field>
         <br/>
-        <button *ngIf="createRecipe || isUserRecipe" mat-button style="background-color: #d62d20" (click)="removeStep(i)">
+        <button *ngIf="createRecipe || isUserRecipe" mat-button style="background-color: #d62d20"
+                (click)="removeStep(i)">
           Supprimer
         </button>
       </p>
@@ -69,9 +71,10 @@
         <mat-error><strong>{{this.err}}</strong></mat-error>
       </p>
     </mat-card-content>
-    <mat-card-actions style="text-align: center; margin-bottom: 15px;">
-      <button type="button" mat-button title="Edit" [routerLink]="[getRouteurLink()]">Annuler</button>
-      <button type="button" *ngIf="isUserRecipe" mat-button style="background-color: #d62d20" title="Delete" (click)="delete()">Supprimer</button>
+    <mat-card-actions style="text-align: center;margin-bottom: 15px;">
+      <button type="button" *ngIf="isUserRecipe" mat-button style="background-color: #d62d20" title="Delete"
+              (click)="delete()">Supprimer
+      </button>
       <button type="submit" *ngIf="isUserRecipe" mat-button title="Edit" (click)="update()">Modifier</button>
       <button type="submit" *ngIf="createRecipe" mat-button title="Edit" (click)="insert()">Ajouter</button>
     </mat-card-actions>

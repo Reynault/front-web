@@ -1,1 +1,10 @@
-<app-recipes [recipes]="recipes"></app-recipes>
+<div class="main-div">
+  <mat-card [class.mat-elevation-z12]="true" class="card list-recipe-item">
+    <mat-card-header>
+      <mat-card-title><h1>Liste des recettes</h1></mat-card-title>
+    </mat-card-header>
+    <mat-card-content class="list-recipe-item-div" style="text-align: center">
+      <app-recipes [recipes]="recipes"></app-recipes>
+    </mat-card-content>
+  </mat-card>
+</div>

@@ -13,6 +13,10 @@
     <mat-icon>menu</mat-icon>
   </button>
   <mat-menu #menu="matMenu">
+    <button mat-menu-item [routerLink]="['/recipes']">
+      Toutes les recettes
+    </button>
+
     <button mat-menu-item [routerLink]="['/my_recipes']">
       Mes recettes
     </button>

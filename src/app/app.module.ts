@@ -15,7 +15,7 @@ import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
-import { ReactiveFormsModule } from '@angular/forms';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {MatGridListModule} from '@angular/material/grid-list';
 import {NavbarComponent} from './shared/navbar/navbar.component';
 import {RecipesComponent} from './shared/recipes/recipes.component';
@@ -66,6 +66,7 @@ import { CreateRecipComponent } from './create-recip/create-recip.component';
     AppRoutingModule,
     MatGridListModule,
     MatMenuModule,
+    FormsModule,
   ],
   providers: [ {provide: HTTP_INTERCEPTORS, useClass: AuthorizationInterceptor, multi: true} ],
   bootstrap: [ AppComponent ]
