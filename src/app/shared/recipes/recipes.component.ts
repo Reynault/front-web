@@ -1,7 +1,7 @@
 import {Component, Input, OnInit} from '@angular/core';
-import {Recipe} from '../shared/interfaces/recipe';
+import {Recipe} from '../interfaces/recipe';
 import {Router} from '@angular/router';
-import {RecipeService} from '../shared/services/recipe.service';
+import {RecipeService} from '../services/recipe.service';
 
 @Component({
   selector: 'app-recipes',
@@ -9,10 +9,10 @@ import {RecipeService} from '../shared/services/recipe.service';
   styleUrls: ['./recipes.component.css']
 })
 export class RecipesComponent implements OnInit {
-
   private _recipes: Recipe[];
 
-  constructor(private _router: Router, private _peopleService: RecipeService) {
+  constructor(private _router: Router,
+              private _peopleService: RecipeService) {
     this._recipes = [];
   }
 
@@ -23,9 +23,12 @@ export class RecipesComponent implements OnInit {
     return this._recipes;
   }
 
+  @Input()
+  set recipes(value: Recipe[]) {
+    this._recipes = value;
+  }
+
   ngOnInit(): void {
-    this._peopleService
-      .fetch().subscribe((recipes: Recipe[]) => this._recipes = recipes);
   }
 
 }

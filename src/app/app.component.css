@@ -11,3 +11,13 @@ mat-toolbar{
   background-repeat: no-repeat;
   background-size: cover;
 }
+
+.buttons-fab {
+  display: block;
+  height: 90px;
+  width: 90px;
+  position: fixed;
+  bottom: 0;
+  right: 0;
+}
+

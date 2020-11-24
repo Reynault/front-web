@@ -9,8 +9,13 @@ export const environment = {
     host: 'localhost',
     port: '3000',
     endpoints: {
+      connect: '/login',
+      subscribe: '/subscribe',
+      profile: '/profile',
       allRecipes: '/recipes',
       oneRecipe: '/recipes/:id',
+      recipesFromUser: '/recipes/user',
+      hasRecipe: '/recipes/has'
     }
   }
 };

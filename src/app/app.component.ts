@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import {Component} from '@angular/core';
+import {TokenService} from './shared/services/token-service';
 
 @Component({
   selector: 'app-root',
@@ -7,5 +8,12 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'front-web';
+
+  constructor(private _token: TokenService) {
+  }
+
+  token(): boolean{
+    return this._token.hasToken();
+  }
 }
 

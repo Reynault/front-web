@@ -1,10 +1,3 @@
-.truncate {
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-}
-
-
 @media (min-width: 768px) {
   :host(.wide) mat-card,
   :host(.wide) mat-list-item{
@@ -148,4 +141,8 @@ img {
 
 .managerLink:hover {
   cursor: pointer;
+}
+
+.recipe-item{
+  width: auto;
 }

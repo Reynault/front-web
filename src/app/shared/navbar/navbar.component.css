@@ -1,8 +1,5 @@
 mat-toolbar.extend-toolbar {
   background-color: black;
-  background-image: url('/assets/images/bg_right.png');
-  background-repeat: no-repeat;
-  background-position: right;
   top: 0px;
   box-shadow: 0 2px 5px 0 rgba(0,0,0,.26);
   width: 100%;

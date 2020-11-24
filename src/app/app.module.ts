@@ -5,7 +5,7 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatCardModule } from '@angular/material/card';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
-import { HttpClientModule } from '@angular/common/http';
+import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
 import { MatButtonModule } from '@angular/material/button';
 import { MatListModule } from '@angular/material/list';
 import { MatIconModule } from '@angular/material/icon';
@@ -18,9 +18,18 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { ReactiveFormsModule } from '@angular/forms';
 import {MatGridListModule} from '@angular/material/grid-list';
 import {NavbarComponent} from './shared/navbar/navbar.component';
-import {RecipesComponent} from './recipes/recipes.component';
+import {RecipesComponent} from './shared/recipes/recipes.component';
+import {InscriptionComponent} from './inscription/inscription.component';
+import {ConnectionComponent} from './connection/connection.component';
+import { UserComponent } from './user/user.component';
+import {AuthorizationInterceptor} from './shared/interceptor/authorization-interceptor';
+import { NotfoundComponent } from './notfound/notfound.component';
 import { CardComponent } from './shared/card/card.component';
-import {RecipyComponent} from './shared/recipe/recipy.component';
+import {RecipeComponent} from './shared/recipe/recipe.component';
+import {MatMenuModule} from '@angular/material/menu';
+import { ListRecipComponent } from './list-recip/list-recip.component';
+import { MyRecipComponent } from './my-recip/my-recip.component';
+import { CreateRecipComponent } from './create-recip/create-recip.component';
 
 
 @NgModule({
@@ -30,8 +39,15 @@ import {RecipyComponent} from './shared/recipe/recipy.component';
     DialogComponent,
     NavbarComponent,
     RecipesComponent,
-    RecipyComponent,
-    CardComponent
+    InscriptionComponent,
+    ConnectionComponent,
+    UserComponent,
+    NotfoundComponent,
+    RecipeComponent,
+    CardComponent,
+    ListRecipComponent,
+    MyRecipComponent,
+    CreateRecipComponent
   ],
   imports: [
     BrowserModule,
@@ -49,8 +65,9 @@ import {RecipyComponent} from './shared/recipe/recipy.component';
     MatFormFieldModule,
     AppRoutingModule,
     MatGridListModule,
+    MatMenuModule,
   ],
-  providers: [],
+  providers: [ {provide: HTTP_INTERCEPTORS, useClass: AuthorizationInterceptor, multi: true} ],
   bootstrap: [ AppComponent ]
 })
 export class AppModule {

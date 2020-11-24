@@ -1,0 +1,79 @@
+<form novalidate [formGroup]="form" class="main-div">
+  <mat-card [class.mat-elevation-z12]="true" class="card list-recipe-item">
+    <mat-card-header>
+      <mat-card-title>
+        <h1 *ngIf="createRecipe">Création d'une recette</h1>
+        <h1 *ngIf="isUserRecipe">Modification d'une recette</h1>
+        <h1 *ngIf="!isUserRecipe && !createRecipe">Visualisation d'une recette</h1>
+      </mat-card-title>
+      <mat-card-subtitle><h3>Montrez nous votre savoir faire !</h3></mat-card-subtitle>
+    </mat-card-header>
+    <mat-card-content style="margin-left: 20px">
+      <p>
+        <mat-form-field appearance="standard">
+          <mat-label>Titre de la recette</mat-label>
+          <input required formControlName="title" matInput>
+        </mat-form-field>
+      </p>
+      <p>
+        <mat-form-field appearance="standard">
+          <mat-label>Description de la recette</mat-label>
+          <textarea cdkTextareaAutosize
+                    cdkAutosizeMinRows="1"
+                    cdkAutosizeMaxRows="5"
+                    type="text" required formControlName="description" matInput ></textarea>
+        </mat-form-field>
+      </p>
+      <p>
+        <mat-label>Liste des ingrédients</mat-label>
+      </p>
+      <p *ngFor="let ingredient of formIngredients.controls; index as j">
+        <ng-container [formGroup]="ingredient">
+          <mat-form-field style="width: 30%" appearance="standard">
+            <mat-label>Nom</mat-label>
+            <input type="text" formControlName="name" required matInput>
+          </mat-form-field>
+          <mat-form-field style="width: 30%; margin-left: 5px;" appearance="standard">
+            <mat-label>Quantité</mat-label>
+            <input type="number" formControlName="quantity" required matInput>
+          </mat-form-field>
+          <mat-form-field style="width: 30%; margin-left: 5px;" appearance="standard">
+            <mat-label>Unité</mat-label>
+            <input type="text" formControlName="unit" required matInput>
+          </mat-form-field>
+        </ng-container>
+        <button *ngIf="createRecipe || isUserRecipe" mat-button style="background-color: #d62d20" (click)="removeIngredient(j)">
+          Supprimer
+        </button>
+      </p>
+      <button *ngIf="createRecipe || isUserRecipe" mat-button (click)="addIngredient('', 0, '')">Ajouter</button>
+      <p>
+        <mat-label>Liste des étapes</mat-label>
+      </p>
+      <p *ngFor="let step of formSteps.controls; index as i">
+        <mat-form-field appearance="standard">
+          <mat-label>Liste des étapes</mat-label>
+          <textarea cdkTextareaAutosize
+                    cdkAutosizeMinRows="1"
+                    cdkAutosizeMaxRows="5"
+                    type="text" [formControl]="formSteps.controls[i]" matInput>
+          </textarea>
+        </mat-form-field>
+        <br/>
+        <button *ngIf="createRecipe || isUserRecipe" mat-button style="background-color: #d62d20" (click)="removeStep(i)">
+          Supprimer
+        </button>
+      </p>
+      <button *ngIf="createRecipe || isUserRecipe" mat-button (click)="addStep('')">Ajouter</button>
+      <p>
+        <mat-error><strong>{{this.err}}</strong></mat-error>
+      </p>
+    </mat-card-content>
+    <mat-card-actions style="text-align: center; margin-bottom: 15px;">
+      <button type="button" mat-button title="Edit" [routerLink]="[getRouteurLink()]">Annuler</button>
+      <button type="button" *ngIf="isUserRecipe" mat-button style="background-color: #d62d20" title="Delete" (click)="delete()">Supprimer</button>
+      <button type="submit" *ngIf="isUserRecipe" mat-button title="Edit" (click)="update()">Modifier</button>
+      <button type="submit" *ngIf="createRecipe" mat-button title="Edit" (click)="insert()">Ajouter</button>
+    </mat-card-actions>
+  </mat-card>
+</form>

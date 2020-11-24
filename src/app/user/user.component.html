@@ -1,0 +1,49 @@
+<form novalidate [formGroup]="form"  class="main-div">
+  <mat-card [class.mat-elevation-z12]="true" class="card">
+    <mat-card-header>
+      <mat-card-title><h1>Mon profil</h1></mat-card-title>
+      <mat-card-subtitle><h3>Bienvenue {{this.user}}</h3></mat-card-subtitle>
+    </mat-card-header>
+    <mat-card-content style="text-align: center">
+      <mat-card-content style="text-align: center">
+        <h3>Changer votre mot de passe :</h3>
+        <p>
+          <mat-form-field appearance="standard" style="height: 110px">
+            <mat-label>Mot de passe</mat-label>
+            <input required formControlName="password" type="password" matInput placeholder="******">
+            <mat-error *ngIf="form.get('password').dirty && form.get('password').hasError('required')">
+              Mot de passe <strong>requis</strong>
+            </mat-error>
+            <mat-error *ngIf="form.get('password').dirty && form.get('password').hasError('hasUpperCase')">
+              Nécessite <strong>une majuscule</strong>
+            </mat-error>
+            <mat-error *ngIf="form.get('password').dirty && form.get('password').hasError('hasNumber')">
+              Nécessite <strong>un nombre</strong>
+            </mat-error>
+            <mat-error *ngIf="form.get('password').dirty && form.get('password').hasError('maxLength')">
+              Taille maximale: <strong>200</strong>
+            </mat-error>
+          </mat-form-field>
+        </p>
+        <p>
+          <mat-form-field appearance="standard" style="height: 100px">
+            <mat-label>Confirmation</mat-label>
+            <input required formControlName="confirmation" type="password" matInput placeholder="******">
+            <mat-error *ngIf="form.get('confirmation').dirty && form.get('confirmation').hasError('required')">
+              Confirmation <strong>requise</strong>
+            </mat-error>
+          </mat-form-field>
+          <mat-error *ngIf="form.hasError('checkConfirm')">
+            <strong> Confirmation non valide </strong>
+          </mat-error>
+        </p>
+        <mat-error><strong>{{this.err}}</strong></mat-error>
+      </mat-card-content>
+    </mat-card-content>
+    <mat-card-actions style="text-align: center; margin-bottom: 15px;">
+      <button (click)="delete()" style="background-color: #d62d20" type="button" class="mat-button">Supprimer</button>
+      <button (click)="modify()" style="background-color: #008744" type="submit" class="mat-button">Modifier</button>
+    </mat-card-actions>
+  </mat-card>
+</form>
+
