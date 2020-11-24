@@ -1,27 +1,101 @@
-# FrontWeb
+# Cookie Book : Front-End
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 11.0.1.
+## Cookie Book
 
-## Development server
+Cookie Book est une application web permettant à l'utilisateur de gérer et partager ses
+recettes de cuisine. Les fonctionnalités sont alors les suivantes:
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+- Créer un compte
+- Se connecter
+- Créer une recette
+- Modifier une recette
+- Supprimer une recette
+- Modifier son compte
+- Supprimer son compte
+- Lister toutes les recettes
+- Lister ses recettes
 
-## Code scaffolding
+L'application utilise le concept des JWT pour permettre à l'API d'identifier les
+utilisateurs.
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+## Description des dépôts
 
-## Build
+Ce dépôt git contient la partie Front du projet de l'unité d'enseignement 
+"Nouvelles technologies du web".
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
+Pour installer et lancer Cookie Book:
+- Commencez par installer et lancer la partie [Back-End](https://github.com/Reynault/back-web).
+- Installez et lancez le [Front-End](https://github.com/Reynault/front-web).
 
-## Running unit tests
+Chaque dépôt contient les informations permettant l'installation et le lancement de 
+sa partie respective. Le back a été réalisé avec Nest JS et le front avec Angular.
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
 
-## Running end-to-end tests
+## Dépendances requises
 
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
 
-## Further help
+```bash
+     _                      _                 ____ _     ___
+    / \   _ __   __ _ _   _| | __ _ _ __     / ___| |   |_ _|
+   / o \ | '_ \ / _` | | | | |/ _` | '__|   | |   | |    | |
+  / ___ \| | | | (_| | |_| | | (_| | |      | |___| |___ | |
+ /_/   \_\_| |_|\__, |\__,_|_|\__,_|_|       \____|_____|___|
+                |___/
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+
+Angular CLI: 10.1.7
+Node: 14.15.1
+OS: win32 x64
+
+Angular: 10.1.6
+... animations, common, compiler, compiler-cli, core, forms
+... platform-browser, platform-browser-dynamic, router
+Ivy Workspace: Yes
+
+Package                         Version
+---------------------------------------------------------
+@angular-devkit/architect       0.1001.7
+@angular-devkit/build-angular   0.1100.2
+@angular-devkit/core            10.1.7
+@angular-devkit/schematics      10.1.7
+@angular/cdk                    10.2.7
+@angular/cli                    10.1.7
+@angular/material               10.2.7
+@schematics/angular             10.1.7
+@schematics/update              0.1001.7
+rxjs                            6.6.3
+typescript                      4.0.5
+```
+
+- Il vous faut également une installation Docker fonctionnelle avec docker-compose
+
+## Installation du Front
+
+Pour pouvoir installer la partie Front:
+
+- Installation du git
+```bash
+$ git clone https://github.com/Reynault/front-web.git
+```
+
+- Installation des dépendances (npm ou yarn)
+```bash
+$ npm install
+```
+```
+$ yarn install
+```
+
+## Lancement du front
+
+- Lancer le projet Angular
+```bash
+$ ng serve
+```
+
+- Vous pouvez désormais accéder au Front sur http://localhost:4200/
+
+## Équipe de développement
+
+- Angela Ipseiz
+- Reynault Sies
