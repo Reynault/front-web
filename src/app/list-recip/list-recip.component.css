@@ -1,0 +1,5 @@
+mat-card{
+  top: -50px;
+  overflow-y: auto;
+  height: 75%;
+}
