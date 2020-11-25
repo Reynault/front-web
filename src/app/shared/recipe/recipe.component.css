@@ -1,10 +1,5 @@
-.list-recipe-item{
-  width: 80%;
-  max-width: 700px;
+mat-card{
+  top: -50px;
   overflow-y: auto;
-  max-height: 80%;
-}
-
-mat-form-field{
-  width: 95%;
+  height: 75%;
 }

@@ -1,10 +1,13 @@
 <mat-card class="mat-whiteframe-2dp recipe-item">
-  <mat-card-title>
+  <mat-card-title class="truncate">
     <span>{{ recipe.title}}</span>
   </mat-card-title>
-  <mat-card-content>
-    <div class="truncate">
+  <mat-card-content class="truncate">
+    <div>
       <span>{{ recipe.description }} </span>
+    </div>
+    <div>
+      <a [routerLink]="['/profile', recipe.username]">{{ recipe.username }}</a>
     </div>
     <div>
       <button style="margin-top: 10px" mat-button title="Consulter" [routerLink]="['/recipes', recipe.id]">

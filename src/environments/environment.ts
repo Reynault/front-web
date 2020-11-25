@@ -12,6 +12,7 @@ export const environment = {
       connect: '/login',
       subscribe: '/subscribe',
       profile: '/profile',
+      userProfile: '/profile/:username',
       allRecipes: '/recipes',
       oneRecipe: '/recipes/:id',
       recipesFromUser: '/recipes/user',

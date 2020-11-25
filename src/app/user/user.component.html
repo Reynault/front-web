@@ -1,12 +1,53 @@
 <form novalidate [formGroup]="form"  class="main-div">
   <mat-card [class.mat-elevation-z12]="true" class="card">
     <mat-card-header>
-      <mat-card-title><h1>Mon profil</h1></mat-card-title>
-      <mat-card-subtitle><h3>Bienvenue {{this.user}}</h3></mat-card-subtitle>
+      <mat-card-title *ngIf="this.isUserConnected"><h1>Mon profil</h1></mat-card-title>
+      <mat-card-title *ngIf="!this.isUserConnected"><h1>Profil</h1></mat-card-title>
+      <mat-card-subtitle *ngIf="!this.isUserConnected"><h3>Voici {{this.user.username}}</h3></mat-card-subtitle>
+      <mat-card-subtitle *ngIf="this.isUserConnected"><h3>Bienvenue {{this.user.username}}</h3></mat-card-subtitle>
     </mat-card-header>
     <mat-card-content style="text-align: center">
-      <mat-card-content style="text-align: center">
-        <h3>Changer votre mot de passe :</h3>
+      <p>
+        <mat-form-field appearance="standard">
+          <mat-label>Email</mat-label>
+          <input required formControlName="email" type="text" matInput placeholder="John@mail.com" [value]="this.user.email">
+          <mat-error *ngIf="form.get('email').dirty && form.get('email').hasError('required')">
+            <strong>Requis</strong>
+          </mat-error>
+          <mat-error *ngIf="form.get('email').dirty && form.get('email').hasError('maxLength')">
+            Taille maximale: <strong>50</strong>
+          </mat-error>
+          <mat-error *ngIf="form.get('email').dirty && form.get('email').hasError('email')">
+            Doit être un <strong>email</strong>
+          </mat-error>
+        </mat-form-field>
+      </p>
+      <p>
+        <mat-form-field appearance="standard">
+          <mat-label>Nom</mat-label>
+          <input required formControlName="firstname" type="text" matInput placeholder="Doe" [value]="this.user.firstname">
+          <mat-error *ngIf="form.get('firstname').dirty && form.get('firstname').hasError('required')">
+            <strong>Requis</strong>
+          </mat-error>
+          <mat-error *ngIf="form.get('firstname').dirty && form.get('firstname').hasError('maxLength')">
+            Taille maximale: <strong>50</strong>
+          </mat-error>
+        </mat-form-field>
+      </p>
+      <p>
+        <mat-form-field appearance="standard">
+          <mat-label>Prénom</mat-label>
+          <input required formControlName="lastname" type="text" matInput placeholder="John" [value]="this.user.lastname">
+          <mat-error *ngIf="form.get('lastname').dirty && form.get('lastname').hasError('required')">
+            <strong>Requis</strong>
+          </mat-error>
+          <mat-error *ngIf="form.get('lastname').dirty && form.get('lastname').hasError('maxLength')">
+            Taille maximale: <strong>50</strong>
+          </mat-error>
+        </mat-form-field>
+      </p>
+      <mat-card-content *ngIf="this.isUserConnected" style="text-align: center">
+        <h3>Changer votre mot de passe</h3>
         <p>
           <mat-form-field appearance="standard" style="height: 110px">
             <mat-label>Mot de passe</mat-label>
@@ -40,9 +81,9 @@
         <mat-error><strong>{{this.err}}</strong></mat-error>
       </mat-card-content>
     </mat-card-content>
-    <mat-card-actions style="text-align: center; margin-bottom: 15px;">
-      <button (click)="delete()" style="background-color: #d62d20" type="button" class="mat-button">Supprimer</button>
-      <button (click)="modify()" style="background-color: #008744" type="submit" class="mat-button">Modifier</button>
+    <mat-card-actions  *ngIf="this.isUserConnected"  style="text-align: center; margin-bottom: 15px;">
+      <button (click)="delete()" style="background-color: #d62d20" type="button" mat-button>Supprimer</button>
+      <button (click)="modify()" style="background-color: #008744" type="submit" mat-button>Modifier</button>
     </mat-card-actions>
   </mat-card>
 </form>

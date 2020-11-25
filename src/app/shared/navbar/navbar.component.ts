@@ -10,7 +10,7 @@ import {AuthService} from '../services/auth.service';
 })
 export class NavbarComponent implements OnInit {
 
-  private _user: string;
+  private _username: string;
 
   constructor(
     private readonly _route: Router,
@@ -22,12 +22,12 @@ export class NavbarComponent implements OnInit {
   }
 
   connected(): boolean {
-    this._user = this._token.get().username;
+    this._username = this._token.get().username;
     return this._token.hasToken();
   }
 
-  get user(): string {
-    return this._user;
+  get username(): string {
+    return this._username;
   }
 
   logout() {

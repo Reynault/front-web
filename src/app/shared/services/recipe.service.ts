@@ -15,6 +15,7 @@ export class RecipeService{
   constructor(private _http: HttpClient) {
     this._defaultRecipe = {
       id: '0',
+      username: 'none',
       title: 'Tarte aux pommes',
       description: 'Super tarte trop bonne de ouf',
       ingredients: [

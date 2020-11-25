@@ -9,7 +9,8 @@ import {Recipe} from '../shared/interfaces/recipe';
 })
 export class ListRecipComponent implements OnInit {
 
-  private _value: string;
+  private _valueTitle: string;
+  private _valueAuthor: string;
   private _recipes: Recipe[];
   private _filteredRecipes: Recipe[];
   private _loading: boolean;
@@ -17,7 +18,8 @@ export class ListRecipComponent implements OnInit {
   constructor(private _recipesService: RecipeService) {
     this._recipes = [];
     this._filteredRecipes = [];
-    this._value = "";
+    this._valueAuthor = "";
+    this._valueTitle = "";
     this._loading = true;
   }
 
@@ -31,10 +33,12 @@ export class ListRecipComponent implements OnInit {
 
   }
 
-  search(value: string){
-    const regex = new RegExp(`.*${value.toLowerCase()}.*`);
+  search(){
+    const regexA = new RegExp(`.*${this._valueAuthor.toLowerCase()}.*`);
+    const regexT = new RegExp(`.*${this._valueTitle.toLowerCase()}.*`);
     this._filteredRecipes = this._recipes.filter(element => {
-        return regex.test(element.title.toLowerCase());
+        return regexA.test(element.username.toLowerCase())
+          && regexT.test(element.title.toLowerCase()) ;
       }
     )
   }
@@ -43,13 +47,22 @@ export class ListRecipComponent implements OnInit {
     return this._filteredRecipes;
   }
 
-  get value(): string {
-    return this._value;
+  get valueAuthor(): string {
+    return this._valueAuthor;
   }
 
-  set value(value: string) {
-    this._value = value;
-    this.search(value);
+  set valueAuthor(value: string) {
+    this._valueAuthor = value;
+    this.search();
+  }
+
+  get valueTitle(): string {
+    return this._valueTitle;
+  }
+
+  set valueTitle(value: string) {
+    this._valueTitle = value;
+    this.search();
   }
 
   get loading(): boolean {

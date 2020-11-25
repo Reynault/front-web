@@ -6,7 +6,7 @@
   <span class="flex"></span>
 
   <span style="width: 20%; text-align: right" *ngIf="connected()">
-    <p class="truncate">{{user}}</p>
+    <p class="truncate">{{username}}</p>
   </span>
 
   <button *ngIf="connected()" mat-icon-button [matMenuTriggerFor]="menu">
@@ -21,7 +21,7 @@
       Mes recettes
     </button>
 
-    <button mat-menu-item [routerLink]="['/profile']">
+    <button mat-menu-item [routerLink]="['/profile',username]">
       Mon profil
     </button>
 

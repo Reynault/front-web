@@ -1,8 +1,7 @@
 import {NgModule} from '@angular/core';
-import { HomeComponent } from './home/home.component';
+import {HomeComponent} from './home/home.component';
 import {RouterModule, Routes} from '@angular/router';
 import {ConnectionComponent} from './connection/connection.component';
-import {RecipesComponent} from './shared/recipes/recipes.component';
 import {InscriptionComponent} from './inscription/inscription.component';
 import {UserComponent} from './user/user.component';
 import {AuthGuard} from './shared/guard/auth-guard';
@@ -14,13 +13,13 @@ import {CreateRecipComponent} from './create-recip/create-recip.component';
 
 const routes: Routes = [
   {path: '', redirectTo: 'home', pathMatch: 'full'},
+  {path: 'home', component: HomeComponent},
   {path: 'connection', component: ConnectionComponent},
   {path: 'inscription', component: InscriptionComponent},
-  {path: 'home', component: HomeComponent},
-  {path: 'profile', component: UserComponent, canActivate: [AuthGuard]},
+  {path: 'profile/:username', component: UserComponent},
 
   {path: 'recipes', component: ListRecipComponent},
-  {path: 'recipes/:id', component: RecipeComponent },
+  {path: 'recipes/:id', component: RecipeComponent},
   {path: 'my_recipes', component: MyRecipComponent},
   {path: 'create', component: CreateRecipComponent, canActivate: [AuthGuard]},
 

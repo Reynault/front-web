@@ -100,15 +100,17 @@ export class RecipeComponent implements OnInit {
 
   delete(): void {
     this._recipeService.delete(this.recipe.id).subscribe(
-      () => this._router.navigate([this.getRouteurLink()]),
+      () => this._router.navigate(['/my_recipes']),
       error => this.handleError(error)
     );
   }
 
   update(): void {
     if (this.form.valid) {
+      let v = this.form.value;
+      Object.assign(v, {username: this._token.get().username});
       this._recipeService.modify(this.recipe.id, this.form.value).subscribe(
-        () => this._router.navigate([this.getRouteurLink()]),
+        () => this._router.navigate(['/my_recipes']),
         error => this.handleError(error)
       );
     }
@@ -117,8 +119,9 @@ export class RecipeComponent implements OnInit {
   insert() {
     if (this.form.valid) {
       Object.assign(this.recipe, this.form.value);
+      Object.assign(this.recipe, {username: this._token.get().username})
       this._recipeService.create(this.recipe).subscribe(
-        () => this._router.navigate([this.getRouteurLink()]),
+        () => this._router.navigate(['/my_recipes']),
         error => this.handleError(error)
       );
     }

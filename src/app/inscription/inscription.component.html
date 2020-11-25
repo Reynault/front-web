@@ -18,7 +18,46 @@
         </mat-form-field>
       </p>
       <p>
-        <mat-form-field appearance="standard" style="height: 110px">
+        <mat-form-field appearance="standard">
+          <mat-label>Email</mat-label>
+          <input required formControlName="email" type="text" matInput placeholder="John@mail.com">
+          <mat-error *ngIf="form.get('email').dirty && form.get('email').hasError('required')">
+            <strong>Requis</strong>
+          </mat-error>
+          <mat-error *ngIf="form.get('email').dirty && form.get('email').hasError('maxLength')">
+            Taille maximale: <strong>50</strong>
+          </mat-error>
+          <mat-error *ngIf="form.get('email').dirty && form.get('email').hasError('email')">
+            Doit être un <strong>email</strong>
+          </mat-error>
+        </mat-form-field>
+      </p>
+      <p>
+        <mat-form-field appearance="standard">
+          <mat-label>Nom</mat-label>
+          <input required formControlName="firstname" type="text" matInput placeholder="Doe">
+          <mat-error *ngIf="form.get('firstname').dirty && form.get('firstname').hasError('required')">
+            <strong>Requis</strong>
+          </mat-error>
+          <mat-error *ngIf="form.get('firstname').dirty && form.get('firstname').hasError('maxLength')">
+            Taille maximale: <strong>50</strong>
+          </mat-error>
+        </mat-form-field>
+      </p>
+      <p>
+        <mat-form-field appearance="standard">
+          <mat-label>Prénom</mat-label>
+          <input required formControlName="lastname" type="text" matInput placeholder="John">
+          <mat-error *ngIf="form.get('lastname').dirty && form.get('lastname').hasError('required')">
+            <strong>Requis</strong>
+          </mat-error>
+          <mat-error *ngIf="form.get('lastname').dirty && form.get('lastname').hasError('maxLength')">
+            Taille maximale: <strong>50</strong>
+          </mat-error>
+        </mat-form-field>
+      </p>
+      <p>
+        <mat-form-field appearance="standard">
           <mat-label>Mot de passe</mat-label>
           <input required formControlName="password" type="password" matInput placeholder="******">
           <mat-error *ngIf="form.get('password').dirty && form.get('password').hasError('required')">
@@ -36,7 +75,7 @@
         </mat-form-field>
       </p>
       <p>
-        <mat-form-field appearance="standard" style="height: 100px">
+        <mat-form-field appearance="standard" style="height: 80px">
           <mat-label>Confirmation</mat-label>
           <input required formControlName="confirmation" type="password" matInput placeholder="******">
           <mat-error *ngIf="form.get('confirmation').dirty && form.get('confirmation').hasError('required')">

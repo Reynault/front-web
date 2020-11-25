@@ -3,16 +3,14 @@ import {HttpClient} from '@angular/common/http';
 import {environment} from '../../../environments/environment';
 import {User} from '../interfaces/user';
 import {Token} from '../interfaces/token';
-import {merge, Observable, of} from 'rxjs';
+import {Observable} from 'rxjs';
 import {TokenService} from './token-service';
 import {map} from 'rxjs/operators';
-import {Recipe} from '../interfaces/recipe';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
-  private _myRecipes: Recipe[];
   private readonly _backendURL: any;
   private readonly _defaultUser: User;
 
@@ -20,6 +18,9 @@ export class AuthService {
               private _token: TokenService) {
     this._defaultUser = {
       'username': 'John',
+      'email': 'John@mail.com',
+      'firstname': 'Joe',
+      'lastname': 'Mama',
       'password': 'Doe'
     };
     this._backendURL = {};
@@ -44,13 +45,13 @@ export class AuthService {
   connect(user: User): Observable<any> {
     return this._http.post<Token>(this._backendURL.connect, user).pipe(
       map(_ => this._token.set(_)),
-    )
+    );
   }
 
-  subscribe(user: User): Observable<any>{
+  subscribe(user: User): Observable<any> {
     return this._http.post<Token>(this._backendURL.subscribe, user).pipe(
       map(_ => this._token.set(_)),
-    )
+    );
   }
 
   delete(): Observable<any> {
@@ -59,18 +60,18 @@ export class AuthService {
     );
   }
 
-  modify(_user: string, value: any): Observable<any>{
-    return this._http.put(this._backendURL.profile,
-      {
-        password: value.password,
-        username: _user
-      }
+  modify(_user: string, value: any): Observable<any> {
+    return this._http.put(this._backendURL.profile,value
     ).pipe(
       map(_ => this._token.del())
     );
   }
 
-  logout(){
+  get(username: string): Observable<any> {
+    return this._http.get(this._backendURL.userProfile.replace(':username', username));
+  }
+
+  logout() {
     this._token.del();
   }
 }

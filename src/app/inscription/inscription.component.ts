@@ -4,6 +4,7 @@ import {PasswordValidators} from '../shared/validators/password-validators';
 import {AuthService} from '../shared/services/auth.service';
 import {Router} from '@angular/router';
 import {errorMessages} from '../shared/constants/error.messages';
+import {EmailValidators} from '../shared/validators/email-validators';
 
 @Component({
   selector: 'app-inscription',
@@ -23,6 +24,19 @@ export class InscriptionComponent implements OnInit {
   private static _buildForm() {
     return new FormGroup({
       username: new FormControl('', Validators.compose([
+        Validators.required,
+        Validators.maxLength(50)
+      ])),
+      email: new FormControl('', Validators.compose([
+        Validators.required,
+        EmailValidators.email,
+        Validators.maxLength(50)
+      ])),
+      firstname: new FormControl('', Validators.compose([
+        Validators.required,
+        Validators.maxLength(50)
+      ])),
+      lastname: new FormControl('', Validators.compose([
         Validators.required,
         Validators.maxLength(50)
       ])),
@@ -50,14 +64,13 @@ export class InscriptionComponent implements OnInit {
     return this._err;
   }
 
-  subscribe(){
-    if(this.form.valid) {
-      this._auth.subscribe({
-        username: this._form.get("username").value,
-        password: this._form.get("password").value
-      }).subscribe(
+  subscribe() {
+    if (this.form.valid) {
+      let u = this._form.value;
+      delete u.confirmation;
+      this._auth.subscribe(u).subscribe(
         () => {
-          this._router.navigate(["/home"])
+          this._router.navigate(['/home']);
         },
         error => {
           switch (error.error.statusCode) {
