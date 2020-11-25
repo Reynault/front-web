@@ -21,7 +21,9 @@
     </mat-card-content>
     <mat-card-content class="list-recipe-item-div" style="text-align: center">
       <app-recipes *ngIf="!loading" [recipes]="filteredRecipes"></app-recipes>
-      <mat-spinner [diameter]="70" *ngIf="loading"></mat-spinner>
+      <button style="background-color: transparent" mat-button disabled>
+        <mat-spinner [diameter]="70" *ngIf="loading"></mat-spinner>
+      </button>
     </mat-card-content>
   </mat-card>
 </div>
